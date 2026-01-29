@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inventory Management"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:textAlignment="center"
+        android:layout_marginBottom="30dp" />
+
+    <!-- Total Products Display -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="15dp"
+        android:layout_marginBottom="20dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/tv_total_products"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Products: 0"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <!-- Add Product Button -->
+    <Button
+        android:id="@+id/btn_add_product"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="+ Add Product"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginBottom="15dp" />
+
+    <!-- View Products Button -->
+    <Button
+        android:id="@+id/btn_view_products"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="View All Products"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#2196F3"
+        android:layout_marginBottom="15dp" />
+
+    <!-- Low Stock Alert Button -->
+    <Button
+        android:id="@+id/btn_low_stock"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="⚠ Low Stock Products"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#FF9800"
+        android:layout_marginBottom="15dp" />
+
+</LinearLayout>

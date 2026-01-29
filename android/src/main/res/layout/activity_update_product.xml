@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#F5F5F5"
+    tools:context=".UpdateProductActivity">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Product"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center" />
+
+    <!-- Product Name -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product Name"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/et_update_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Enter product name"
+        android:padding="10dp"
+        android:background="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginBottom="15dp"
+        android:elevation="2dp" />
+
+    <!-- Category -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/et_update_category"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Enter category"
+        android:padding="10dp"
+        android:background="#FFFFFF"
+        android:textSize="14sp"
+        android:layout_marginBottom="15dp"
+        android:elevation="2dp" />
+
+    <!-- Price -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Price ($)"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/et_update_price"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Enter price"
+        android:padding="10dp"
+        android:background="#FFFFFF"
+        android:textSize="14sp"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="15dp"
+        android:elevation="2dp" />
+
+    <!-- Quantity -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quantity"
+        android:textSize="14sp"
+        android:textColor="#666666"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/et_update_quantity"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Enter quantity"
+        android:padding="10dp"
+        android:background="#FFFFFF"
+        android:textSize="14sp"
+        android:inputType="number"
+        android:layout_marginBottom="25dp"
+        android:elevation="2dp" />
+
+    <!-- Update Button -->
+    <Button
+        android:id="@+id/btn_update_product"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Update Product"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#4CAF50"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/btn_delete_product"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Delete Product"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#f44336"
+        android:layout_marginBottom="10dp" />
+
+    <!-- Cancel Button -->
+    <Button
+        android:id="@+id/btn_cancel_update"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Cancel"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="#757575" />
+
+</LinearLayout>
