@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management Tool</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📦 Inventory Management System</h1>
+            <p>Real-time Inventory Tracking</p>
+        </div>
+
+        <div class="form-section">
+            <h2>➕ Add New Product</h2>
+            <form id="productForm">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <input type="text" id="productCategory" placeholder="Category (Electronics, Clothing, etc.)">
+                <input type="number" id="productPrice" placeholder="Price" step="0.01" required>
+                <input type="number" id="productQuantity" placeholder="Quantity" required>
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="🔍 Search products...">
+        </div>
+
+        <div class="products-section">
+            <h2>📋 Product List (Real-time Data)</h2>
+            <p style="color: #666; font-size: 0.9em;">✅ Connected to live database • Data updates every 5 seconds</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 20px; color: #999;">
+                            Loading data... Please wait
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>💾 All data is stored in cloud database • Available globally 🌍</p>
+        </div>
+    </div>
+
+    <script src="script-api.js"></script>
+</body>
+</html>
