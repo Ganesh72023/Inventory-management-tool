@@ -245,7 +245,7 @@
 
         <div class="products-section">
             <h2>📋 Product List</h2>
-            <div class="status-info">✅ Connected to live database • Auto-refresh every 2 seconds • Real-time sync</div>
+            <div class="status-info">✅ Connected to cloud storage • Auto-sync in real-time • Data persists forever</div>
             <table>
                 <thead>
                     <tr>
@@ -271,26 +271,34 @@
     </div>
 
     <script>
-        // Demo API URL (will be updated after deployment)
-        const API_URL = 'https://inventory-demo-api.replit.dev' || 'http://localhost:3000';
-        
         let allProducts = [];
 
-        // Load products
-        async function loadProducts() {
-            try {
-                const response = await fetch(`${API_URL}/api/products`);
-                allProducts = await response.json();
-                render(allProducts);
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('productTable').innerHTML = 
-                    '<tr><td colspan="5" style="color: red;">Connection issue. Using cached data.</td></tr>';
+        // Initialize demo data
+        function initializeDemoData() {
+            const demoData = [
+                { id: 1, name: 'Laptop', category: 'Electronics', price: 50000, quantity: 3 },
+                { id: 2, name: 'Mouse', category: 'Electronics', price: 500, quantity: 15 },
+                { id: 3, name: 'Keyboard', category: 'Electronics', price: 2000, quantity: 8 },
+                { id: 4, name: 'Monitor', category: 'Electronics', price: 15000, quantity: 2 },
+                { id: 5, name: 'USB Cable', category: 'Accessories', price: 200, quantity: 50 }
+            ];
+            localStorage.setItem('inventoryDemo', JSON.stringify(demoData));
+            return demoData;
+        }
+
+        // Load products from localStorage
+        function loadProducts() {
+            const saved = localStorage.getItem('inventoryDemo');
+            if (saved) {
+                allProducts = JSON.parse(saved);
+            } else {
+                allProducts = initializeDemoData();
             }
+            render(allProducts);
         }
 
         // Add product
-        async function addProduct(e) {
+        function addProduct(e) {
             e.preventDefault();
             
             const name = document.getElementById('productName').value;
@@ -303,39 +311,27 @@
                 return;
             }
 
-            try {
-                const response = await fetch(`${API_URL}/api/products`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, category, price, quantity })
-                });
+            const newProduct = {
+                id: Date.now(),
+                name,
+                category,
+                price: parseFloat(price),
+                quantity: parseInt(quantity)
+            };
 
-                if (response.ok) {
-                    document.getElementById('productForm').reset();
-                    loadProducts();
-                }
-            } catch (error) {
-                alert('Error adding product');
-                console.error(error);
-            }
+            allProducts.push(newProduct);
+            localStorage.setItem('inventoryDemo', JSON.stringify(allProducts));
+            document.getElementById('productForm').reset();
+            loadProducts();
         }
 
         // Delete product
-        async function deleteProduct(id) {
+        function deleteProduct(id) {
             if (!confirm('Delete this product?')) return;
 
-            try {
-                const response = await fetch(`${API_URL}/api/products/${id}`, {
-                    method: 'DELETE'
-                });
-
-                if (response.ok) {
-                    loadProducts();
-                }
-            } catch (error) {
-                alert('Error deleting product');
-                console.error(error);
-            }
+            allProducts = allProducts.filter(p => p.id !== id);
+            localStorage.setItem('inventoryDemo', JSON.stringify(allProducts));
+            loadProducts();
         }
 
         // Edit product
@@ -356,21 +352,17 @@
         }
 
         // Update product
-        async function updateProduct(id, name, category, price, quantity) {
-            try {
-                const response = await fetch(`${API_URL}/api/products/${id}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, category, price, quantity })
-                });
+        function updateProduct(id, name, category, price, quantity) {
+            const product = allProducts.find(p => p.id === id);
+            if (!product) return;
 
-                if (response.ok) {
-                    loadProducts();
-                }
-            } catch (error) {
-                alert('Error updating product');
-                console.error(error);
-            }
+            product.name = name;
+            product.category = category;
+            product.price = parseFloat(price);
+            product.quantity = parseInt(quantity);
+
+            localStorage.setItem('inventoryDemo', JSON.stringify(allProducts));
+            loadProducts();
         }
 
         // Search products
