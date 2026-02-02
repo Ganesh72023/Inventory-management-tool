@@ -4,7 +4,13 @@
 
 **Host:** `redis-15095.c212.ap-south-1-1.ec2.cloud.redislabs.com`
 **Port:** `15095`
-**Password:** (if required, add to REDIS_PASSWORD in .env)
+**Username:** `default`
+**Password:** `iwbRulXXenH5r2CSFCAgG7ID934XaadZ`
+
+**Connection String:**
+```
+redis://default:iwbRulXXenH5r2CSFCAgG7ID934XaadZ@redis-15095.c212.ap-south-1-1.ec2.cloud.redislabs.com:15095
+```
 
 ---
 
@@ -23,7 +29,8 @@
    ```
    REDIS_HOST=redis-15095.c212.ap-south-1-1.ec2.cloud.redislabs.com
    REDIS_PORT=15095
-   REDIS_PASSWORD=
+   REDIS_USERNAME=default
+   REDIS_PASSWORD=iwbRulXXenH5r2CSFCAgG7ID934XaadZ
    NODE_ENV=production
    ```
 6. **Deploy!** ✅

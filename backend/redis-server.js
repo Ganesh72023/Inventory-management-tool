@@ -11,7 +11,8 @@ app.use(express.json());
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST || 'redis-15095.c212.ap-south-1-1.ec2.cloud.redislabs.com',
   port: process.env.REDIS_PORT || 15095,
-  password: process.env.REDIS_PASSWORD || '',
+  password: process.env.REDIS_PASSWORD || 'iwbRulXXenH5r2CSFCAgG7ID934XaadZ',
+  username: process.env.REDIS_USERNAME || 'default',
   retryStrategy: (options) => {
     if (options.error && options.error.code === 'ECONNREFUSED') {
       return new Error('Redis Server refused the connection');
